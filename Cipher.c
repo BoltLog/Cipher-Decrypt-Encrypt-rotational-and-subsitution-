@@ -6,7 +6,6 @@
 //this code will allow encryyption and decryption in rotstional and subsitution ciphers
 //it will achieve this with file and standard input and output with a user interface
 // follow instructions when prompted to and the program should work
-
 int main() {
  
     printf("Cipher Selection\n");
