@@ -11,13 +11,14 @@ it will achieve this with file and standard input and output with a user interfa
 */
 
 char* RotationCipherEncryption();
+char* RoationCipherDecryption();
 
 
 int main() {
 
     printf("Cipher Selection\n");
     printf(" a) rotation cipher encryption\n");
-    printf(" b) subsitution cipher\n");
+    printf(" b) rotation cipher decryption\n");
 
     char c;
     scanf("%c", &c);
@@ -28,7 +29,7 @@ int main() {
     switch(c){
         case 'a': RotationCipherEncryption();
         break;
-        case 'b': printf(" b) subsitution cipher\n");
+        case 'b': RoationCipherDecryption();
         break;
 
     }
@@ -42,10 +43,10 @@ char* RotationCipherEncryption()
     int a, b;
     printf("Your only UPPER CASE text file is being inputed as follows:");
 
-    FILE *input= fopen("input.txt" , "r");
-    fgets(str,100,input);
-    puts(str);
-    fclose(input);
+    FILE *inputrotationEncryption= fopen("inputrotationEncryption.txt" , "r"); //opens and reds text.txt file
+    fgets(str,100,inputrotationEncryption);
+    puts(str); //this
+    fclose(inputrotationEncryption);
     printf("Enter your cipher key:");
     scanf("%d", &a);
 
@@ -63,5 +64,39 @@ char* RotationCipherEncryption()
         str[b]=c;
     }
         printf("the now encrypted message is %s", str); //%s is used so the string is called if only %c was used only one character would be printed
+        return str;
+}
+
+
+char* RoationCipherDecryption()
+{
+    char str[100], c;
+    int a, b;
+
+    printf("Your only UPPER CASE decrypted text file is being inputed as follows:");
+
+    FILE *inputrotationDecryption= fopen("inputrotationDecryption.txt" , "r"); //opens and reds "text".txt file
+    fgets(str,100,inputrotationDecryption);
+    puts(str); //displays stored info in console
+    fclose(inputrotationDecryption);
+    printf("Enter your cipher key:");
+    scanf("%d", &a);
+
+        for(b=0; str[b] != '\0'; b++) //this makes sure that nothing can exceed the limit of the the string as a limit in c with string is a \0
+        {
+            c=str[b];
+            if(c>= 'A' && c<= 'Z' )// this makes sure that the cipher is within its bounds so correct encrypted text comes out
+            {
+                c= c - a; //this gives each character its new value dependant by the key which is "a"
+            }
+                if(c<'A' && c<' ')
+            {
+                c= c+26; //this makes characters that orginally went over z when being encrypted return to its orginal value
+            }
+            str[b]=c;
+        }
+            printf("the now encrypted message is: %s", str); //%s is used so the string is called if only %c was used only one character would be printed
+
+
         return str;
 }
