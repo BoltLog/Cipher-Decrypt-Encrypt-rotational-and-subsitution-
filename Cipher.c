@@ -4,7 +4,7 @@
 
 /*this code aims to achieve encryption and decrytion of any text into uppercase letters
 this program however will only accept text not any special characters or numbers for encryption.
-This code will allow encryyption and decryption in rotational and subsitution ciphers
+This code will allow encryyption and decryption in rotational and substitution ciphers
 it will achieve this with file standard i/o with a basic but friendly user interface
  for program to work follow instructions when prompted to and restart for each instance of use.
 Encryption and Decryption are given with separate text files make sure you fill in the text files correctly for
