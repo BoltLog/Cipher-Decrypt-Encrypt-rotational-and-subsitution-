@@ -29,12 +29,12 @@ int main()
 
     char c;
     scanf("%c", &c);
-    while(c< 'a' || c> 'e') //this makes loop continue ntill correct input is entered
+    while(c< 'a' || c> 'e') //this makes loop continue until correct input is entered
     {
         printf("an invalid output detected please enter a, b, c, d or e\n");
         scanf("%c", &c);
     }
-        switch(c) //lets the user input actually decide on the selection
+        switch(c) //lets the user input actually decide on the selection of a function to be undertaken
         {
             case 'a': RotationCipherEncryption();
             break;
@@ -59,12 +59,12 @@ char* RotationCipherEncryption()
     int a, b, i;
     printf("Your only UPPER CASE text file is about to be inputed:\n");
     printf("Enter your cipher key 1-26:");
-    scanf("%d", &a);
+    scanf("%d", &a); //scans in a user inputed value for integer 'a' and stores it
 
 
     FILE *inputrotationEncryption= fopen("inputrotationEncryption.txt" , "r"); //opens and reads text.txt file
     FILE *inputrotationDecryption= fopen("inputrotationDecryption.txt" , "w"); //opens and sets file up to be written into
-    while(fgets(str,10000,inputrotationEncryption))
+    while(fgets(str,10000,inputrotationEncryption)) //loops on reading and modifying the input from a string by reading line by line
     {
 
         printf("line of text is as follows:");
@@ -203,7 +203,7 @@ char* RotationBruteCrack()
 
     printf("Your only UPPER CASE decrypted text file is being inputed as follows:");
 
-    FILE *inputrotationDecryption= fopen("inputrotationDecryption.txt" , "r"); //opens and reds "text".txt file
+    FILE *inputrotationDecryption= fopen("inputrotationDecryption.txt" , "r"); //opens and reads "text".txt file
     fgets(str,10000,inputrotationDecryption);
     char tempo[10000];
     puts(str); //displays stored info in console
